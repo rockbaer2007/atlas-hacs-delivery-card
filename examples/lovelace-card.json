@@ -1,0 +1,9 @@
+{
+  "type": "custom:atlas-hacs-delivery-card",
+  "title": "Locale test card",
+  "entities": [
+    "sensor.atlas_roundtrip_temperature",
+    "input_boolean.atlas_roundtrip_lamp"
+  ],
+  "replacement_hint": "Replace the demo entities with your own Home Assistant entities."
+}

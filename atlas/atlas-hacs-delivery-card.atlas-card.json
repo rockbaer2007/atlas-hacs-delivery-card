@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "kind": "atlas.homeassistant.card",
+  "manifest": {
+    "name": "Locale test card",
+    "filename": "locale-test-card-entity-vertical-stack.json",
+    "format": "json",
+    "mimeType": "application/json",
+    "target": "entity",
+    "layout": "vertical-stack",
+    "dependency": {
+      "id": "home-assistant",
+      "label": "Home Assistant built-in",
+      "required": false,
+      "resourcePaths": [],
+      "installPaths": []
+    },
+    "languages": [
+      "en",
+      "de",
+      "fr"
+    ],
+    "fallbackLanguages": [
+      "de",
+      "fr"
+    ]
+  },
+  "content": "{\n  \"type\": \"vertical-stack\",\n  \"cards\": [\n    {\n      \"type\": \"horizontal-stack\",\n      \"cards\": [\n        {\n          \"type\": \"entity\",\n          \"name\": \"Core Temperature\",\n          \"entity\": \"sensor.atlas_roundtrip_temperature\"\n        },\n        {\n          \"type\": \"custom:bubble-card\",\n          \"card_type\": \"button\",\n          \"button_type\": \"switch\",\n          \"name\": \"Bubble Lamp\",\n          \"entity\": \"input_boolean.atlas_roundtrip_lamp\",\n          \"show_state\": true\n        }\n      ]\n    },\n    {\n      \"type\": \"custom:mushroom-template-card\",\n      \"primary\": \"Mushroom Lamp\",\n      \"secondary\": \"input_boolean.atlas_roundtrip_lamp\",\n      \"entity\": \"input_boolean.atlas_roundtrip_lamp\"\n    }\n  ]\n}",
+  "locales": [
+    {
+      "language": "en",
+      "path": "locales/en.json",
+      "status": "manual",
+      "content": {
+        "_meta": {
+          "language": "en",
+          "status": "manual",
+          "sourceLanguage": "en"
+        },
+        "card": {
+          "title": "Locale test card",
+          "unavailable": "Unavailable",
+          "replaceDemoEntities": "Replace the demo entities with your own Home Assistant entities before publishing."
+        }
+      }
+    },
+    {
+      "language": "de",
+      "path": "locales/de.json",
+      "status": "fallback",
+      "content": {
+        "_meta": {
+          "language": "de",
+          "status": "fallback",
+          "sourceLanguage": "en",
+          "note": "This language file contains English fallback text. Please translate and review it before publishing."
+        },
+        "card": {
+          "title": "Locale test card",
+          "unavailable": "Unavailable",
+          "replaceDemoEntities": "Replace the demo entities with your own Home Assistant entities before publishing."
+        }
+      }
+    },
+    {
+      "language": "fr",
+      "path": "locales/fr.json",
+      "status": "fallback",
+      "content": {
+        "_meta": {
+          "language": "fr",
+          "status": "fallback",
+          "sourceLanguage": "en",
+          "note": "This language file contains English fallback text. Please translate and review it before publishing."
+        },
+        "card": {
+          "title": "Locale test card",
+          "unavailable": "Unavailable",
+          "replaceDemoEntities": "Replace the demo entities with your own Home Assistant entities before publishing."
+        }
+      }
+    }
+  ],
+  "editorPlan": {
+    "cardName": "Locale test card",
+    "scriptFilename": "atlas-hacs-delivery-card.js",
+    "resourcePath": "/hacsfiles/atlas/atlas-hacs-delivery-card.js",
+    "editorMode": "expert",
+    "simpleTarget": "entity",
+    "defaultEntityIds": [
+      "sensor.atlas_roundtrip_temperature",
+      "input_boolean.atlas_roundtrip_lamp"
+    ],
+    "supportedLayouts": [
+      "single",
+      "horizontal-stack",
+      "vertical-stack"
+    ],
+    "supportedFieldTargets": [
+      "entities",
+      "glance",
+      "entity",
+      "button",
+      "sensor",
+      "thermostat",
+      "link",
+      "webpage",
+      "bubble",
+      "mushroom-template",
+      "custom-card",
+      "tabbed-card-v2"
+    ],
+    "fields": [
+      {
+        "id": "Core Temperature",
+        "target": "entity",
+        "templateId": "entity-card",
+        "resizeBaseWidth": 4,
+        "resizeBaseHeight": 2,
+        "entityId": "sensor.atlas_roundtrip_temperature",
+        "layout": "card",
+        "entries": [],
+        "column": 0,
+        "row": 0,
+        "width": 4,
+        "height": 2
+      },
+      {
+        "id": "Bubble Lamp",
+        "target": "bubble",
+        "bubbleButtonType": "switch",
+        "entityId": "input_boolean.atlas_roundtrip_lamp",
+        "layout": "card",
+        "entries": [],
+        "column": 4,
+        "row": 0,
+        "width": 4,
+        "height": 2
+      },
+      {
+        "id": "Mushroom Lamp",
+        "target": "mushroom-template",
+        "entityId": "input_boolean.atlas_roundtrip_lamp",
+        "layout": "card",
+        "entries": [],
+        "column": 0,
+        "row": 2,
+        "width": 8,
+        "height": 2
+      }
+    ],
+    "layoutMode": "drag-and-drop",
+    "replacementHint": "Replace the demo entities with your own Home Assistant entities."
+  },
+  "script": {
+    "filename": "atlas-hacs-delivery-card.js",
+    "customElementName": "atlas-hacs-delivery-card",
+    "cardType": "custom:atlas-hacs-delivery-card",
+    "resourcePath": "/hacsfiles/atlas-hacs-delivery-card/atlas-hacs-delivery-card.js",
+    "defaultConfig": {
+      "type": "custom:atlas-hacs-delivery-card",
+      "title": "Locale test card",
+      "entities": [
+        "sensor.atlas_roundtrip_temperature",
+        "input_boolean.atlas_roundtrip_lamp"
+      ],
+      "replacement_hint": "Replace the demo entities with your own Home Assistant entities."
+    },
+    "source": "const ATLAS_EN = {\"title\":\"Locale test card\",\"unavailable\":\"Unavailable\",\"replaceDemoEntities\":\"Replace the demo entities with your own Home Assistant entities.\"};\nconst ATLAS_LOCALE_BASE = new URL(\"./locales/\", import.meta.url);\nconst ATLAS_LOCALES = new Map();\nfunction atlasReadLocale(language) {\n  if (!ATLAS_LOCALES.has(language)) ATLAS_LOCALES.set(language, (async () => {\n    if (typeof fetch !== \"function\") return {};\n    const controller = new AbortController();\n    const timeout = setTimeout(() => controller.abort(), 3000);\n    try {\n      const response = await fetch(new URL(language + \".json\", ATLAS_LOCALE_BASE), {\n        credentials: \"omit\", mode: \"same-origin\", redirect: \"error\", cache: \"no-cache\", signal: controller.signal,\n      });\n      if (!response.ok) return {};\n      const text = await response.text();\n      if (text.length > 65536) return {};\n      const value = JSON.parse(text);\n      if (!value || value._meta?.language !== language || !value.card || Array.isArray(value.card)) return {};\n      return Object.fromEntries(Object.keys(ATLAS_EN).flatMap(key => {\n        const text = value.card[key];\n        return typeof text === \"string\" && text.trim() && text.length <= 2000 ? [[key, text]] : [];\n      }));\n    } catch { return {}; }\n    finally { clearTimeout(timeout); }\n  })());\n  return ATLAS_LOCALES.get(language);\n}\nasync function atlasLoadLocale(language) {\n  const [english, selected] = await Promise.all([\n    atlasReadLocale(\"en\"), language === \"en\" ? {} : atlasReadLocale(language),\n  ]);\n  return { ...ATLAS_EN, ...english, ...selected };\n}\nconst DEFAULT_CONFIG = {\n  \"type\": \"custom:atlas-hacs-delivery-card\",\n  \"title\": \"Locale test card\",\n  \"entities\": [\n    \"sensor.atlas_roundtrip_temperature\",\n    \"input_boolean.atlas_roundtrip_lamp\"\n  ],\n  \"replacement_hint\": \"Replace the demo entities with your own Home Assistant entities.\"\n};\nconst DEFAULT_CARD = {\n  \"type\": \"vertical-stack\",\n  \"cards\": [\n    {\n      \"type\": \"horizontal-stack\",\n      \"cards\": [\n        {\n          \"type\": \"entity\",\n          \"name\": \"Core Temperature\",\n          \"entity\": \"sensor.atlas_roundtrip_temperature\"\n        },\n        {\n          \"type\": \"custom:bubble-card\",\n          \"card_type\": \"button\",\n          \"button_type\": \"switch\",\n          \"name\": \"Bubble Lamp\",\n          \"entity\": \"input_boolean.atlas_roundtrip_lamp\",\n          \"show_state\": true\n        }\n      ]\n    },\n    {\n      \"type\": \"custom:mushroom-template-card\",\n      \"primary\": \"Mushroom Lamp\",\n      \"secondary\": \"input_boolean.atlas_roundtrip_lamp\",\n      \"entity\": \"input_boolean.atlas_roundtrip_lamp\"\n    }\n  ]\n};\nclass AtlasHacsDeliveryCardCard extends HTMLElement {\n  cardLanguage() {\n    const requested = this.config?.language || this._hass?.locale?.language || this._hass?.language || \"en\";\n    const base = typeof requested === \"string\" ? requested.toLowerCase().split(/[-_]/)[0] : \"en\";\n    return /^[a-z]{2}$/.test(base) ? base : \"en\";\n  }\n  translated(key) { return this._locale?.[key] ?? ATLAS_EN[key]; }\n  localizedTitle() {\n    return this.config?.title && this.config.title !== DEFAULT_CONFIG.title\n      ? this.config.title : this.translated(\"title\");\n  }\n  localizedHint() {\n    return this.config?.replacement_hint && this.config.replacement_hint !== DEFAULT_CONFIG.replacement_hint\n      ? this.config.replacement_hint : this.translated(\"replaceDemoEntities\");\n  }\n\n  setConfig(config) {\n    this.config = { ...DEFAULT_CONFIG, ...config };\n    this.config.entities = Array.isArray(config?.entities) && config.entities.length\n      ? [...config.entities] : [...DEFAULT_CONFIG.entities];\n    this.createCard();\n  }\n  set hass(value) {\n    this._hass = value;\n    if (this._card) this._card.hass = value;\n    this.updateHint();\n    if (this.config && this.cardLanguage() !== this._requestedLanguage) this.createCard();\n  }\n  getCardSize() { return this._card?.getCardSize?.() ?? 3; }\n  static getStubConfig() { return { ...DEFAULT_CONFIG, entities: [...DEFAULT_CONFIG.entities] }; }\n  updateHint() {\n    if (this._hint) this._hint.hidden = !this._hass || !this.config.entities.some(id => !this._hass.states?.[id]);\n  }\n  async createCard() {\n    const generation = this._generation = (this._generation ?? 0) + 1;\n    const language = this._requestedLanguage = this.cardLanguage();\n    const root = this.shadowRoot ?? this.attachShadow({ mode: \"open\" });\n    const replacements = new Map(DEFAULT_CONFIG.entities.map((id, i) => [id, this.config.entities[i] ?? id]));\n    const replace = value => typeof value === \"string\" ? replacements.get(value) ?? value\n      : Array.isArray(value) ? value.map(replace)\n      : value && typeof value === \"object\" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, replace(item)]))\n      : value;\n    const cardConfig = replace(DEFAULT_CARD);\n    try {\n      const locale = await atlasLoadLocale(language);\n      if (generation !== this._generation) return;\n      this._locale = locale;\n      const title = this.localizedTitle();\n      if (cardConfig.title === DEFAULT_CONFIG.title) cardConfig.title = title;\n      const helpers = await window.loadCardHelpers();\n      if (generation !== this._generation) return;\n      const card = helpers.createCardElement(cardConfig);\n      this._card = card;\n      if (this._hass) card.hass = this._hass;\n      const heading = document.createElement(\"div\");\n      heading.className = \"atlas-card-title\";\n      heading.setAttribute(\"role\", \"heading\");\n      heading.setAttribute(\"aria-level\", \"2\");\n      heading.style.cssText = \"padding:8px 4px;font-size:20px;font-weight:500;color:var(--primary-text-color)\";\n      heading.textContent = title;\n      const hint = this._hint = document.createElement(\"p\");\n      hint.className = \"atlas-card-hint\";\n      hint.style.cssText = \"padding:4px;font-size:14px;color:var(--secondary-text-color)\";\n      hint.textContent = this.localizedHint();\n      this.updateHint();\n      root.replaceChildren(...(cardConfig.title === title ? [] : [heading]), card, hint);\n    } catch (error) {\n      if (generation !== this._generation) return;\n      const message = document.createElement(\"ha-card\");\n      this._card = undefined;\n      message.textContent = this.translated(\"unavailable\");\n      root.replaceChildren(message);\n    }\n  }\n}\nif (!customElements.get(\"atlas-hacs-delivery-card\")) customElements.define(\"atlas-hacs-delivery-card\", AtlasHacsDeliveryCardCard);\nwindow.customCards = window.customCards ?? [];\nif (!window.customCards.some(card => card.type === \"atlas-hacs-delivery-card\")) window.customCards.push({\n  type: \"atlas-hacs-delivery-card\", name: \"Locale test card\", preview: true,\n  description: \"Replace the demo entities with your own Home Assistant entities.\",\n});\n"
+  }
+}
