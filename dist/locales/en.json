@@ -5,7 +5,7 @@
     "sourceLanguage": "en"
   },
   "card": {
-    "title": "Locale test card",
+    "title": "Locale test card 0.1.1",
     "unavailable": "Unavailable",
     "replaceDemoEntities": "Replace the demo entities with your own Home Assistant entities before publishing."
   }

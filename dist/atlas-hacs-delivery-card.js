@@ -1,3 +1,4 @@
+// ATLAS HACS verification fixture release 0.1.1; runtime behavior unchanged.
 const ATLAS_EN = {"title":"Locale test card","unavailable":"Unavailable","replaceDemoEntities":"Replace the demo entities with your own Home Assistant entities."};
 const ATLAS_LOCALE_BASE = new URL("./locales/", import.meta.url);
 const ATLAS_LOCALES = new Map();

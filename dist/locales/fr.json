@@ -1,13 +1,13 @@
 {
   "_meta": {
     "language": "fr",
-    "status": "fallback",
+    "status": "manual",
     "sourceLanguage": "en",
-    "note": "This language file contains English fallback text. Please translate and review it before publishing."
+    "note": "Manually authored verification texts for release 0.1.1."
   },
   "card": {
-    "title": "Locale test card",
-    "unavailable": "Unavailable",
-    "replaceDemoEntities": "Replace the demo entities with your own Home Assistant entities before publishing."
+    "title": "Salon 0.1.1",
+    "unavailable": "Indisponible",
+    "replaceDemoEntities": "Remplacez les entités de démonstration par vos entités Home Assistant avant publication."
   }
 }
